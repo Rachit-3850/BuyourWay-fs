@@ -1,29 +1,34 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts , clearErrors } from "../../actions/prouductActions";
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
 import './home.css'
 import Cards from "../card";
 import Loader from "../loader/Loader";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import Pagination from "react-js-pagination";
 const Home = () => {
 	const dispatch = useDispatch();
-	const {loading , products, error, productsCount } = useSelector(
+	const [ currentPage, setCurrentPage] = useState(1);
+	const {loading , products, error, productsCount , resPerPage } = useSelector(
 		(state) => state.products
 	);
 	useEffect(() => {
-		dispatch(getProducts());
+		dispatch(getProducts(currentPage));
 		if(error) {
 			toast.error(error);
 			dispatch(clearErrors());
 		}
 
-	}, [dispatch]);
+	}, [dispatch , currentPage]);
 	// const prouductList = prouducts.prouducts
 	// console.log(prouductList)
 	// const deleteProuduct = prouduct => {
 	//     dispatch(getProduts(prouduct))
 	// }
+	function setCurrentPageNo(pageNumber) {
+		setCurrentPage(pageNumber);
+	}
 	return (
 		<div className="container">
 			{loading ? (
@@ -31,7 +36,7 @@ const Home = () => {
 			) : (
 				
 				<div>
-					<div className="row">
+					<div className="row my-5">
 						
 						{products &&
 							products.map((product) => (
@@ -47,6 +52,20 @@ const Home = () => {
 								</div>
 							))}
 						
+					</div>
+					<div className="d-flex justify-content-center">
+							<Pagination 
+							 activePage={currentPage}
+							 itemsCountPerPage={resPerPage}
+							 totalItemsCount={productsCount}
+							 onChange={setCurrentPageNo}
+							 nextPageText={'Next'}
+							 prevPageText={'Prev'}
+							 firstPageText={'First'}
+							 lastPageText={'Last'}
+							 itemClass="page-item" 
+							 linkClass="page-link"
+							/>
 					</div>
 				</div>
 			)}
