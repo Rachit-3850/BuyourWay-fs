@@ -3,7 +3,7 @@ const app = express();
 const errorMiddleware = require('./middlewares/error');
 const cookieParser = require("cookie-parser")
 const bodyParser = require('body-parser')
-const fileUpload = require('file-upload')
+const fileUpload = require('express-fileupload')
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));

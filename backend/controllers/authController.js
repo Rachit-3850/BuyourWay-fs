@@ -4,6 +4,7 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors.js");
 const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+const cloudinary = require("cloudinary");
 
 
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
@@ -12,8 +13,8 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
         width: 150,
         crop: "scale"
     })
-	const { name, email, password } = req.body;
-	// console.log(name, email, passwo rd);
+	// const { name, email, password } = req.body;
+	console.log(name, email, password);
 	const user = await User.create({
 		name,
 		email,

@@ -6,6 +6,7 @@ import Footer from "./layouts/footer/Footer";
 import Home from "./components/home/Home";
 import ProductDetails from "./components/productDetails/ProductDetails";
 import Login from "./components/login/Login";
+import Register from "./components/register/Register";
 
 function App() {
 	return (
@@ -16,7 +17,9 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/search/:keyword"  element={<Home />} />
 					<Route path="/product/:id" element={<ProductDetails />} />
+
 					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Register />} />
 				</Routes>
 				<Footer />
 			</div>
