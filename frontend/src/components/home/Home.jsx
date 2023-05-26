@@ -7,20 +7,22 @@ import Loader from "../loader/Loader";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Pagination from "react-js-pagination";
+import { useParams } from "react-router-dom";
 const Home = () => {
 	const dispatch = useDispatch();
 	const [ currentPage, setCurrentPage] = useState(1);
 	const {loading , products, error, productsCount , resPerPage } = useSelector(
 		(state) => state.products
 	);
+	const { keyword } = useParams();
 	useEffect(() => {
-		dispatch(getProducts(currentPage));
+		dispatch(getProducts(keyword , currentPage));
 		if(error) {
 			toast.error(error);
 			dispatch(clearErrors());
 		}
 
-	}, [dispatch , currentPage]);
+	}, [dispatch , currentPage , keyword]);
 	// const prouductList = prouducts.prouducts
 	// console.log(prouductList)
 	// const deleteProuduct = prouduct => {
@@ -36,11 +38,11 @@ const Home = () => {
 			) : (
 				
 				<div>
-					<div className="row my-5">
+					<div className="row ">
 						
 						{products &&
 							products.map((product) => (
-								<div className="col-md-6 col-lg-4 col-xxl-3"> 
+								<div className="col-md-6 col-lg-4 col-xxl-3 my-4"> 
 									<Cards
 										name={product.name}
 										price={product.price}
