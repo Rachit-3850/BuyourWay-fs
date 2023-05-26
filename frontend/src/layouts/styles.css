@@ -1,0 +1,27 @@
+.heading {
+    margin-left: 10px;
+}
+.search-btn {
+    color: #FF4B8B;
+    border-color: #FF4B8B;
+
+}
+.pink {
+    color: #FF4B8B;
+}
+.logout {
+    background-color: #F9A8D4;
+    color:black
+}
+.logout:hover {
+    background-color: #f9a8e8;
+}
+.btn_logout {
+    margin-right: 10px;
+}
+.heading-name {
+    font-style: italic;
+}
+.search {
+    width: 500px;
+}

@@ -1,0 +1,25 @@
+.design {
+    min-height: 80vh;
+    margin-top: 50px;
+}
+.margin-bottom {
+    margin-bottom: 50px;
+}
+.margin-right {
+    margin-right: 10px;
+}
+.add-to-cart {
+    width: 200px;
+}
+.measure {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.bold {
+    font-weight: bold;
+}
+  
+  
