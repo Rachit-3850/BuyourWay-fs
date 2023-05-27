@@ -42,7 +42,7 @@ const Home = () => {
 						
 						{products &&
 							products.map((product) => (
-								<div className="col-md-6 col-lg-4 col-xxl-3 my-4"> 
+								<div className="col-md-6 col-lg-4 col-xxl-3 my-4 "> 
 									<Cards
 										name={product.name}
 										price={product.price}
@@ -55,7 +55,7 @@ const Home = () => {
 							))}
 						
 					</div>
-					<div className="d-flex justify-content-center">
+					<div className="d-flex justify-content-center my-5 ">
 							<Pagination 
 							 activePage={currentPage}
 							 itemsCountPerPage={resPerPage}

@@ -10,6 +10,8 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import { loadUser } from "./actions/userActions";
 import store from "./store";
+import Profile from "./components/profile/Profile";
+import ProtectedRoute from "./components/route/ProtectedRoute";
 
 function App() {
 	useEffect(() => {
@@ -27,6 +29,12 @@ function App() {
 
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
+					<Route path="/me" element={
+						<ProtectedRoute>
+							<Profile />
+						</ProtectedRoute>
+					} />
+					
 				</Routes>
 				<Footer />
 			</div>
