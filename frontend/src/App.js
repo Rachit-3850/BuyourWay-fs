@@ -12,11 +12,14 @@ import { loadUser } from "./actions/userActions";
 import store from "./store";
 import Profile from "./components/profile/Profile";
 import ProtectedRoute from "./components/route/ProtectedRoute";
+import ForgotPassword from "./components/register/ForgotPassword";
+import UpdatePassword from "./components/profile/UpdatePassword";
+import ResetPassword from "./components/register/ResetPassword";
 
 function App() {
 	useEffect(() => {
 		store.dispatch(loadUser());
-	},[])
+	}, []);
 
 	return (
 		<BrowserRouter>
@@ -24,17 +27,22 @@ function App() {
 				<Header />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/search/:keyword"  element={<Home />} />
+					<Route path="/search/:keyword" element={<Home />} />
 					<Route path="/product/:id" element={<ProductDetails />} />
 
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
-					<Route path="/me" element={
-						<ProtectedRoute>
-							<Profile />
-						</ProtectedRoute>
-					} />
-					
+					<Route path="/password/forgot" element={<ForgotPassword />} />
+					<Route path="/password/reset/:token" element={<ResetPassword />} />
+					<Route
+						path="/me"
+						element={
+							<ProtectedRoute>
+								<Profile />
+							</ProtectedRoute>
+						}
+					/>
+
 				</Routes>
 				<Footer />
 			</div>
