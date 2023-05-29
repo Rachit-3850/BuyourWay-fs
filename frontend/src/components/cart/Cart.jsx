@@ -2,6 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../loader/Loader";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import Cookies from 'js-cookie'
 import { addItemToCart , removeItemFromCart} from "../../actions/cartActions";
 import {
 	MDBBtn,
@@ -26,6 +29,8 @@ const Cart = () => {
 	const cart = useSelector((state) => state.cart);
 	const { cartItems } = cart;
  
+	const navigate = useNavigate();
+
     const increaseQty = (id , quantity , stock) => {
 		
 		if(quantity + 1 > stock) {
@@ -46,6 +51,14 @@ const Cart = () => {
 
     const removeItem = (id) => {
             dispatch(removeItemFromCart(id))
+    }
+
+    const goToShipping = () => {
+        if (Cookies.get()) {
+            return navigate('/shipping');
+        } else {
+            return navigate('/login');
+        }
     }
 
 
@@ -195,6 +208,7 @@ const Cart = () => {
 										<button
 											type="button"
 											class="btn btn-primary btn-lg btn-block"
+                                            onClick={goToShipping}
 										>
 											Go to checkout
 										</button>

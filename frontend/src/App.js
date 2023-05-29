@@ -16,6 +16,9 @@ import ForgotPassword from "./components/register/ForgotPassword";
 import UpdatePassword from "./components/profile/UpdatePassword";
 import ResetPassword from "./components/register/ResetPassword";
 import Cart from "./components/cart/Cart";
+import Shipping from "./components/cart/Shipping";
+import ConfirmOrder from "./components/cart/ConfirmOrder";
+import OrderSuccess from "./components/cart/OrderSuccess";
 
 function App() {
 	useEffect(() => {
@@ -40,6 +43,30 @@ function App() {
 						element={
 							<ProtectedRoute>
 								<Profile />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/shipping"
+						element={
+							<ProtectedRoute>
+								<Shipping />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/confirm-order"
+						element={
+							<ProtectedRoute>
+								<ConfirmOrder />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/success"
+						element={
+							<ProtectedRoute>
+								<OrderSuccess />
 							</ProtectedRoute>
 						}
 					/>
