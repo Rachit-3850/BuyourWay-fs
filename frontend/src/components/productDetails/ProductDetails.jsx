@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import "./index.css";
@@ -8,10 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductDetails, clearErrors } from "../../actions/prouductActions";
 import { toast, ToastContainer } from "react-toastify";
 import Loader from "../loader/Loader";
+import { addItemToCart } from "../../actions/cartActions";
 
 const ProductDetails = () => {
 	const dispatch = useDispatch();
 	const { id } = useParams();
+	const [quantity , setQuantity ] = useState(1);
 	const { loading, error, product } = useSelector(
 		(state) => state.productDetails
 	);
@@ -25,6 +27,30 @@ const ProductDetails = () => {
 
 		// console.log(pro);
 	}, [dispatch, error, id]);
+
+	const increaseQty = () => {
+		
+		if(quantity + 1 > product.stock) {
+			return ;
+		}
+
+        const qty = quantity + 1;
+        setQuantity(qty)
+	}
+	const decreaseQty = () => {
+		
+		if(quantity - 1 < 1) {
+			return ;
+		}
+        const qty = quantity - 1;
+        setQuantity(qty)
+    }
+
+    const addToCart = () => {
+		dispatch(addItemToCart(product._id, quantity));
+		alert("Item added to cart")
+    }
+
 	return (
 		<>
 			{loading ? (
@@ -45,7 +71,7 @@ const ProductDetails = () => {
 								</div>
 							</Carousel>
 							<div className="d-flex justify-content-center">
-								<button type="button" class="btn logout add-to-cart">
+								<button type="button" class="btn logout add-to-cart" disabled={product.stock === 0} onClick={addToCart}>
 									<i class="fa-solid fa-cart-shopping rounded margin-right"></i>
 									<span>Add To Cart</span>
 								</button>
@@ -73,6 +99,7 @@ const ProductDetails = () => {
 													className="btn btn-danger btn-number"
 													data-type="minus"
 													data-field="quant[2]"
+													onClick={decreaseQty}
 												>
 													<i className="fa-solid fa-minus"></i>
 												</button>
@@ -80,9 +107,9 @@ const ProductDetails = () => {
 											<span>
 												<input
 													type="type"
-													className="form-control input-number"
-													min={0}
-													value={0}
+													className="form-control count input-number"
+													min={1}
+													value={quantity}
 												/>
 											</span>
 											<span class="input-group-btn">
@@ -91,6 +118,7 @@ const ProductDetails = () => {
 													className="btn btn-success btn-number"
 													data-type="plus"
 													data-field="quant[2]"
+													onClick={increaseQty}
 												>
 													<i className="fa-solid fa-plus"></i>
 												</button>

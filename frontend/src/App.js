@@ -15,6 +15,7 @@ import ProtectedRoute from "./components/route/ProtectedRoute";
 import ForgotPassword from "./components/register/ForgotPassword";
 import UpdatePassword from "./components/profile/UpdatePassword";
 import ResetPassword from "./components/register/ResetPassword";
+import Cart from "./components/cart/Cart";
 
 function App() {
 	useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
 						}
 					/>
 
+					<Route path="/cart" element={<Cart />} />
 				</Routes>
 				<Footer />
 			</div>
