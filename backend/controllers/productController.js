@@ -1,3 +1,4 @@
+
 const Product = require('../models/products.js');
 const ErrorHandler = require('../utils/errorHandler.js');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors.js')
@@ -92,11 +93,12 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
 
     const { rating, comment, productId } = req.body;
-    console.log("rating");  
+    // console.log("rating");  
     const review = {
         user: req.user._id,
         name: req.user.name,
         rating: Number(rating),
+        createdAt: new Date(),
         comment
     }
 

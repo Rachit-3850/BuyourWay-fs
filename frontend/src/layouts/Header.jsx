@@ -68,6 +68,9 @@ const Header = () => {
 									
 									</Dropdown.Toggle>
 									<Dropdown.Menu>
+									<Dropdown.Item href="/">
+										Home
+										</Dropdown.Item>
 									{user && user.role === "admin" && (
 										
 										<Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
