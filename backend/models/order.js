@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 
 const orderSchema = mongoose.Schema({
     shippingInfo: {
+        name: {
+            type: String,
+            
+        },
         address: {
             type: String,
             required: true
@@ -52,14 +56,6 @@ const orderSchema = mongoose.Schema({
             }
         }
     ],
-    paymentInfo: {
-        id: {
-            type: String
-        },
-        status: {
-            type: String
-        }
-    },
     paidAt: {
         type: Date
     },
