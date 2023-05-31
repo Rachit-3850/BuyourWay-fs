@@ -97,6 +97,7 @@ const ProductDetails = () => {
 		dispatch(addItemToCart(product._id, quantity));
 		alert("Item added to cart");
 	};
+	// console.log(product);
 
 	return (
 		<>
@@ -106,16 +107,12 @@ const ProductDetails = () => {
 				<div className="container design" id="review">
 					<div className="row ">
 						<div className="col-md-6 margin-bottom">
-							<Carousel>
-								<div>
-									<img src="https://cdn.pixabay.com/photo/2013/07/18/10/56/railroad-163518_1280.jpg" />
+							<Carousel dynamicHeight={false} >
+								{product?.images?.map(image => (
+								<div >
+									<img  src={image.url} />
 								</div>
-								<div>
-									<img src="https://cdn.pixabay.com/photo/2013/07/18/10/56/railroad-163518_1280.jpg" />
-								</div>
-								<div>
-									<img src="https://cdn.pixabay.com/photo/2013/07/18/10/56/railroad-163518_1280.jpg" />
-								</div>
+								))}
 							</Carousel>
 							<div className="d-flex justify-content-center">
 								<button

@@ -69,7 +69,7 @@ const OrderDetails = () => {
 												<MDBRow>
 													<MDBCol md="2">
 														<MDBCardImage
-															src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
+															src={item.image}
 															fluid
 															alt="Phone"
 														/>

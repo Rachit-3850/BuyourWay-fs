@@ -9,7 +9,7 @@ const Cards = ({ name, price, url, ratings, noOfReviews , product }) => {
 		<Card style={{ width: "18rem" }}>
 			<Card.Img
 				variant="top"
-				src="https://images.unsplash.com/photo-1597655601841-214a4cfe8b2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW91bnRhaW4lMjBzY2VuZXJ5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+				src={url}
 			/>
 			<Card.Body>
 				<Card.Title>{name}</Card.Title>

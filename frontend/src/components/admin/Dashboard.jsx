@@ -5,15 +5,17 @@ import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import { getAdminProducts , clearErrors} from "../../actions/prouductActions";
 import { allOrders } from '../../actions/orderActions'
+import { allUsers } from "../../actions/userActions";
 
 const Dashboard = () => {
 	const {  error, products } = useSelector(state => state.products);
     const { orders, totalAmount, loading } = useSelector(state => state.allOrders)
+	const { users } = useSelector(state => state.allUsers)
 	const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAdminProducts());
 		dispatch(allOrders())
-
+		dispatch(allUsers())
         if (error) {
             alert.error(error);
             dispatch(clearErrors())
@@ -97,7 +99,7 @@ const Dashboard = () => {
 									</div>
 									<div class="row align-items-center mb-2 d-flex">
 										<div class="col-8">
-											<h2 class="d-flex align-items-center mb-0">15.07k</h2>
+											<h2 class="d-flex align-items-center mb-0">{users?.length}</h2>
 										</div>
 									</div>
                                     <hr />

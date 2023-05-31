@@ -28,4 +28,7 @@
     content: '\f005 \f005 \f005 \f005 \f005';
     color: #f8ce0b;
   }
+  .fix_height {
+    height: 400px;
+  }
   

@@ -89,7 +89,7 @@ const Cart = () => {
 														className="bg-image rounded hover-zoom hover-overlay"
 													>
 														<img
-															src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+															src={item.image}
 															className="w-100"
 														/>
 														<a href="#!">

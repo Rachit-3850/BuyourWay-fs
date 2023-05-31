@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts, clearErrors } from "../../actions/prouductActions";
 import { Fragment, useEffect, useState } from "react";
 import "./home.css";
-import Cards from "../card";
+import Cards from "./card";
 import Loader from "../loader/Loader";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
