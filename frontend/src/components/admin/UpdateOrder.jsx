@@ -11,31 +11,60 @@ import {
 	MDBRow,
 	MDBTypography,
 } from "mdb-react-ui-kit";
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./index.css";
-import { Link, useNavigate } from "react-router-dom";
-import { getOrderDetails, clearErrors } from "../../actions/orderActions";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../loader/Loader";
-import { useParams } from "react-router-dom";
+import { getOrderDetails, updateOrder, clearErrors } from '../../actions/orderActions'
+import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
+import { Fragment } from "react";
+import Sidebar from "./Sidebar";
+const UpdateOrder = () => {
+    const [status, setStatus] = useState('');
 
-const OrderDetails = () => {
-	const dispatch = useDispatch();
-	const { loading, error, order } = useSelector((state) => state.orderDetails);
-	const { id } = useParams();
+    const { orderId } = useParams()
+    const { loading, order = {} } = useSelector(state => state.orderDetails)
+    const { shippingInfo, orderItems, paymentInfo, user, totalPrice, orderStatus } = order
+    const { error, isUpdated } = useSelector(state => state.order)
+    const dispatch = useDispatch();
+	// const { loading, order } = useSelector((state) => state.orderDetails);
 	// console.log(id);
 	// const { shippingInfo, orderItems , user, totalPrice, orderStatus } = order
-	console.log(order);
-	useEffect(() => {
-		dispatch(getOrderDetails(id));
+	// console.log(order);
+	
+    useEffect(() => {
 
-		if (error) {
-			alert(error);
-			dispatch(clearErrors());
-		}
-	}, [dispatch, error, id]);
-	return (
-		<Fragment>
+        dispatch(getOrderDetails(orderId))
+
+        if (error) {
+            alert("Error in updating order");
+            dispatch(clearErrors())
+        }
+
+        if (isUpdated) {
+            alert('Order updated successfully');
+            dispatch({ type: UPDATE_ORDER_RESET })
+        }
+
+    }, [dispatch, error, isUpdated, orderId])
+
+    // const updateOrderHandler = (id) => {
+    //     const formData = new FormData();
+    //     formData.set('status', status);
+
+    //     dispatch(updateOrder(id, formData))
+    // }
+    const updateOrderHandler = (id) => {
+
+        const formData = new FormData();
+        formData.set('status', status);
+
+        dispatch(updateOrder(id, formData))
+    }
+
+  return (
+    <Fragment>
 			{loading ? (
 				<Loader />
 			) : (
@@ -50,19 +79,19 @@ const OrderDetails = () => {
 									<MDBCard style={{ borderRadius: "10px" }}>
 										<MDBCardHeader className="px-4 py-5">
 											<MDBTypography tag="h5" className="text-muted mb-0">
-												id <span style={{ color: "#a8729a" }}>{id}</span>
+												id <span style={{ color: "#a8729a" }}>{orderId}</span>
 											</MDBTypography>
 										</MDBCardHeader>
+                                        
 										<MDBCardBody className="p-4">
-											<div className="d-flex justify-content-between align-items-center mb-4">
+                                        <div className="d-flex justify-content-between align-items-center mb-4">
 												<p
 													className="lead fw-normal mb-0"
 													style={{ color: "#a8729a" }}
 												>
-													Receipt
+													Update Order
 												</p>
 											</div>
-
                                             {order?.orderItems?.map((item) => (
 										<MDBCard className="shadow-0 border mb-4">
 											<MDBCardBody>
@@ -142,45 +171,28 @@ const OrderDetails = () => {
 													{`${order?.shippingInfo?.address}, ${order?.shippingInfo?.postalCode}, ${order?.shippingInfo?.country}`}
 												</p>
 											</div>
-											<hr
-												className="mb-4"
-												style={{ backgroundColor: "#e0e0e0", opacity: 1 }}
-											/>
-											<MDBRow className="align-items-center">
-												<MDBCol md="2">
-													<p className="text-muted mb-0 small">Track Order</p>
-												</MDBCol>
-												<MDBCol md="10">
-													<MDBProgress
-														style={{ height: "6px", borderRadius: "16px" }}
-													>
-														<MDBProgressBar
-															style={{
-																borderRadius: "16px",
-																backgroundColor: "#a8729a",
-															}}
-															width={order?.orderStatus === "Processing" ? (
-                                                               30
-                                                            ) : order?.orderStatus === "Shipped" ? (
-                                                                65
-                                                            ) : (100)}
-															valuemin={0}
-															valuemax={100}
-														/>
-													</MDBProgress>
-													<div className="d-flex justify-content-around mb-1">
-														<p className="text-muted mt-1 mb-0 small ms-xl-5">
-															Processing
-														</p>
-														<p className="text-muted mt-1 mb-0 small ms-xl-5">
-															Out for delivary
-														</p>
-														<p className="text-muted mt-1 mb-0 small ms-xl-5">
-															Delivered
-														</p>
-													</div>
-												</MDBCol>
-											</MDBRow>
+                                            <div className="col-12 col-lg-3 mt-5">
+                                    <h4 className="my-4">Status</h4>
+
+                                    <div className="form-group">
+                                        <select
+                                            className="form-control"
+                                            name='status'
+                                            value={status}
+                                            onChange={(e) => setStatus(e.target.value)}
+                                        >
+                                            <option value="Processing">Processing</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Delivered">Delivered</option>
+                                        </select>
+                                    </div>
+
+                                    <button className="btn btn-primary btn-block mt-3"
+                                     onClick={() => updateOrderHandler(order._id)}
+                                     >
+                                        Update Status
+                                    </button>
+                                </div>	
 										</MDBCardBody>
 										<MDBCardFooter
 											className="border-0 px-4 py-5"
@@ -208,7 +220,7 @@ const OrderDetails = () => {
 				</Fragment>
 			)}
 		</Fragment>
-	);
-};
+  )
+}
 
-export default OrderDetails;
+export default UpdateOrder

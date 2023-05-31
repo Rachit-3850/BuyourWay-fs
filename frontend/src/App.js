@@ -27,6 +27,8 @@ import ProductsList from "./components/admin/ProductsList";
 import NewProuduct from "./components/admin/NewProuduct";
 import UpdateProfile from "./components/profile/UpdateProfile";
 import UpdateProduct from "./components/admin/UpdateProduct";
+import OrdersList from "./components/admin/OrdersList";
+import UpdateOrder from "./components/admin/UpdateOrder";
 
 function App() {
 	useEffect(() => {
@@ -123,6 +125,22 @@ function App() {
 						element={
 							<ProtectedRoute >
 								<NewProuduct />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/admin/orders"
+						element={
+							<ProtectedRoute >
+								<OrdersList />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/admin/order/:orderId"
+						element={
+							<ProtectedRoute >
+								<UpdateOrder />
 							</ProtectedRoute>
 						}
 					/>

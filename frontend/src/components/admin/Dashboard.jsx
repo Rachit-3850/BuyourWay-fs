@@ -4,14 +4,15 @@ import Loader from "../loader/Loader";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import { getAdminProducts , clearErrors} from "../../actions/prouductActions";
-
+import { allOrders } from '../../actions/orderActions'
 
 const Dashboard = () => {
-	const { loading, error, products } = useSelector(state => state.products);
-    // const { error: deleteError, isDeleted } = useSelector(state => state.product)
+	const {  error, products } = useSelector(state => state.products);
+    const { orders, totalAmount, loading } = useSelector(state => state.allOrders)
 	const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAdminProducts());
+		dispatch(allOrders())
 
         if (error) {
             alert.error(error);
@@ -43,7 +44,7 @@ const Dashboard = () => {
 									</div>
 									<div class="row align-items-center mb-2 d-flex">
 										<div class="col-8">
-											<h2 class="d-flex align-items-center mb-0">$11.61k</h2>
+											<h2 class="d-flex align-items-center mb-0">Rs{" "}{totalAmount && totalAmount.toFixed(2)}</h2>
 										</div>
 									</div>
 								</div>
@@ -62,7 +63,7 @@ const Dashboard = () => {
 									</div>
 									<div class="row align-items-center mb-2 d-flex">
 										<div class="col-8">
-											<h2 class="d-flex align-items-center mb-0">3,243</h2>
+											<h2 class="d-flex align-items-center mb-0">{orders?.length}</h2>
 										</div>
 									</div>
                                     <hr />
@@ -70,6 +71,7 @@ const Dashboard = () => {
 										class=" mt-1 text-decoration-none text-white"
 										data-height="8"
 										style={{ height: "8px" }}
+										to={"/admin/orders"}
 									>
 										<div className="text-decoration-none">
 											<span className="text-decoration-none">
