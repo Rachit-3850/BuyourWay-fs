@@ -21,6 +21,12 @@ import ConfirmOrder from "./components/cart/ConfirmOrder";
 import OrderSuccess from "./components/cart/OrderSuccess";
 import ListOrder from "./components/order/ListOrder";
 import OrderDetails from "./components/order/OrderDetails";
+import Dashboard from "./components/admin/Dashboard";
+import AdminRoute from "./components/route/AdminRoute";
+import ProductsList from "./components/admin/ProductsList";
+import NewProuduct from "./components/admin/NewProuduct";
+import UpdateProfile from "./components/profile/UpdateProfile";
+import UpdateProduct from "./components/admin/UpdateProduct";
 
 function App() {
 	useEffect(() => {
@@ -85,6 +91,38 @@ function App() {
 						element={
 							<ProtectedRoute>
 								<OrderDetails />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/dashboard"
+						element={
+							<ProtectedRoute isAdmin={true}>
+								<Dashboard />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/admin/products"
+						element={
+							<ProtectedRoute >
+								<ProductsList />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/admin/product/:productId"
+						element={
+							<ProtectedRoute >
+								<UpdateProduct />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path="/admin/product"
+						element={
+							<ProtectedRoute >
+								<NewProuduct />
 							</ProtectedRoute>
 						}
 					/>

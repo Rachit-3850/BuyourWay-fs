@@ -3,23 +3,22 @@ import { Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
-const ProtectedRoute = ({ isAdmin, children}) => {
-
+const AdminRoute =  ({ isAdmin, children}) => {
     const { isAuthenticated, loading, user } = useSelector(state => state.auth)
     const navigate = useNavigate();
-    if (Cookies.get()) {
-		// for(let i = 0;i<10000000;i++) {}
-		// if(isAdmin && "admin" !== user?.role) {
-		// 	navigate('/')
-		// }
-		
-		return children;
+    if (Cookies.get() && user) {
+        // console.log(user)
+        // await user;
+        if(user?.role === 'admin') {
+            console.log(user.role);
+            return children
+        }
+        else {
+            return navigate('/');
+        }
 	} else {
 		return navigate('/login');
 	}
-    
 }
 
-
-
-export default ProtectedRoute
+export default AdminRoute

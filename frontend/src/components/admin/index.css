@@ -1,0 +1,185 @@
+.sidebar-wrapper {
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+	min-height: 100vh;
+	font-weight: normal;
+
+	margin-top: 0;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 10;
+}
+#sidebar {
+	min-width: 100%;
+	max-width: 100%;
+	background: #fe64d7;
+	color: #fff;
+	transition: all 0.3s;
+}
+#sidebar.active {
+	margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+	padding: 20px;
+	background: #ff4b8b;
+}
+#sidebar ul.components {
+	padding: 5px 0px;
+	border-bottom: 1px solid #ff4b8b;
+}
+
+#sidebar ul li a {
+	padding: 10px;
+	font-size: 1.1em;
+	display: block;
+	color: white;
+	text-decoration: none;
+}
+#sidebar ul li a:hover {
+	color: #ff4b8b;
+	background: #fff;
+}
+
+#sidebar ul li a i {
+	margin-right: 0.3rem;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+	color: #fff;
+	background: #ff4b8b;
+}
+a[data-toggle="collapse"] {
+	position: relative;
+}
+.dropdown-toggle::after {
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+}
+
+ul ul a {
+	font-size: 1rem !important;
+	padding-left: 30px !important;
+}
+
+ul.CTAs {
+	padding: 20px;
+}
+
+ul.CTAs a {
+	text-align: center;
+	font-size: 0.9em !important;
+	display: block;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+card {
+	background-color: #fff;
+	border-radius: 10px;
+	border: none;
+	position: relative;
+	margin-bottom: 30px;
+	box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+		0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+		0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+		0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+}
+.l-bg-cherry {
+	background: linear-gradient(to right, #493240, #f09) !important;
+	color: #fff;
+}
+
+.l-bg-blue-dark {
+	background: linear-gradient(to right, #373b44, #4286f4) !important;
+	color: #fff;
+}
+
+.l-bg-green-dark {
+	background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+	color: #fff;
+}
+
+.l-bg-orange-dark {
+	background: linear-gradient(to right, #a86008, #ffba56) !important;
+	color: #fff;
+}
+
+.card .card-statistic-3 .card-icon-large .fas,
+.card .card-statistic-3 .card-icon-large .far,
+.card .card-statistic-3 .card-icon-large .fab,
+.card .card-statistic-3 .card-icon-large .fal {
+	font-size: 110px;
+}
+
+.card .card-statistic-3 .card-icon {
+	text-align: center;
+	line-height: 50px;
+	margin-left: 15px;
+	color: #000;
+	position: absolute;
+	right: -5px;
+	top: 20px;
+	opacity: 0.1;
+}
+
+.l-bg-cyan {
+	background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+	color: #fff;
+}
+
+.l-bg-green {
+	background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+	color: #fff;
+}
+
+.l-bg-orange {
+	background: linear-gradient(to right, #f9900e, #ffba56) !important;
+	color: #fff;
+}
+
+.l-bg-cyan {
+	background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+	color: #fff;
+}
+.dropdown-btn {
+	/* margin-left: 0.3rem; */
+	padding: 10px;
+	font-size: 1.1em;
+	display: block;
+	color: white;
+	text-decoration: none;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+}
+.dropdown-container {
+	display: none;
+	background-color: #fe64d7;
+	padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+	float: right;
+	padding-right: 8px;
+}
+.active {
+	background-color: #fe64d7;
+	color: white;
+}
+.dropdown-btn:hover {
+	color: #ff4b8b;
+	background: #fff;
+}
+.li-bg {
+	background-color: #fe64d7;
+}
