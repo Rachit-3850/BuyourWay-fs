@@ -28,7 +28,7 @@ router.route("/password/update").put(isAuthenticatedUser ,updatePassword );
 router.route("/me/update").put(isAuthenticatedUser ,updateProfile );
 router.route("/admin/users").get(isAuthenticatedUser ,authorizeRoles("admin") , allUsers );
 router.route("/admin/user/:id").get(isAuthenticatedUser ,authorizeRoles("admin") , getUserDetails );
-router.route("/admin/user/update/:id").post(isAuthenticatedUser ,authorizeRoles("admin") , updateUser);
+router.route("/admin/user/update/:id").put(isAuthenticatedUser ,authorizeRoles("admin") , updateUser);
 router.route("/admin/user/delete/:id").delete(isAuthenticatedUser ,authorizeRoles("admin") , deleteUser);
 
 

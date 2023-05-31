@@ -8,11 +8,6 @@ const ProtectedRoute = ({ isAdmin, children}) => {
     const { isAuthenticated, loading, user } = useSelector(state => state.auth)
     const navigate = useNavigate();
     if (Cookies.get()) {
-		// for(let i = 0;i<10000000;i++) {}
-		// if(isAdmin && "admin" !== user?.role) {
-		// 	navigate('/')
-		// }
-		
 		return children;
 	} else {
 		return navigate('/login');

@@ -13,8 +13,8 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
         width: 150,
         crop: "scale"
     })
-	// const { name, email, password } = req.body;
-	console.log(name, email, password);
+	const { name, email, password } = req.body;
+	// console.log("hello",name, email, password);
 	const user = await User.create({
 		name,
 		email,
@@ -236,6 +236,8 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     if (!user) {
         return next(new ErrorHandler(`User does not found with id: ${req.params.id}`))
     }
+    const image_id = user.avatar.public_id;
+    await cloudinary.v2.uploader.destroy(image_id);
     res.status(200).json({
         success: true,
     })
