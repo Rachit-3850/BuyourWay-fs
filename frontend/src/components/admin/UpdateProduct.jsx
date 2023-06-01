@@ -83,10 +83,16 @@ const UpdateProduct = () => {
         formData.set('category', category);
         formData.set('stock', stock);
         formData.set('seller', seller);
-
-        images.forEach(image => {
-            formData.append('images', image)
-        })
+        formData.set('images',  JSON.stringify(images));
+        // const arr = []
+        // console.log(images);
+        // images.forEach(image => {
+        //     arr.push('images', image)
+        // })
+        // formData.set('images', arr);
+        // images.forEach(image => {
+        //     formData.append('images', image)
+        // })
 
         dispatch(updateProduct(product._id, formData))
     }

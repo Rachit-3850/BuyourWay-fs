@@ -6,7 +6,9 @@ import ReactStars from 'react-stars'
 
 const Cards = ({ name, price, url, ratings, noOfReviews , product }) => {
 	return (
-		<Card style={{ width: "18rem" }}>
+		<div className="card_height">
+
+		<Card style={{ width: "18rem"}}>
 			<Card.Img
 				variant="top"
 				src={url}
@@ -23,6 +25,7 @@ const Cards = ({ name, price, url, ratings, noOfReviews , product }) => {
 				</Link>
 			</Card.Body>
 		</Card>
+		</div>
 	);
 };
 

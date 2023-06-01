@@ -28,7 +28,14 @@
     content: '\f005 \f005 \f005 \f005 \f005';
     color: #f8ce0b;
   }
-  .fix_height {
-    height: 400px;
+  
+
+  .card_height {
+    height: 500px;
+  }
+  .card_image {
+    height: 250px;
+    width: 250px;
+    object-fit: contain;
   }
   

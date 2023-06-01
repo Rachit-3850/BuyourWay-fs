@@ -11,7 +11,7 @@ const NewProuduct = () => {
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('Electronics');
     const [stock, setStock] = useState(0);
     const [seller, setSeller] = useState('');
     const [images, setImages] = useState([]);
@@ -65,11 +65,14 @@ const NewProuduct = () => {
         formData.set('category', category);
         formData.set('stock', stock);
         formData.set('seller', seller);
-        
-        console.log(images);
-        images.forEach(image => {
-            formData.append('images', image)
-        })
+        formData.set('images' ,  JSON.stringify(images));
+
+        // const arr = []
+        // // console.log(images);
+        // images.forEach(image => {
+        //     arr.append('images', image)
+        // })
+        // formData.set('images', arr);
 
         dispatch(newProduct(formData))
     }
@@ -77,17 +80,19 @@ const NewProuduct = () => {
     const onChange = e => {
 
         const files = Array.from(e.target.files)
-
+        console.log(files);
         setImagesPreview([]);
         setImages([])
+        // setImagesPreview(files)
+        // setImages(files)
 
         files.forEach(file => {
             const reader = new FileReader();
 
             reader.onload = () => {
                 if (reader.readyState === 2) {
-                    setImagesPreview(oldArray => [...oldArray, reader.result])
-                    setImages(oldArray => [...oldArray, reader.result])
+                    setImagesPreview((old)=>[...old, reader.result])
+                    setImages((old)=>[...old, reader.result])
                 }
             }
 
