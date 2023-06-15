@@ -23,7 +23,7 @@ const Login = () => {
 		}
 
 		if (error) {
-			toast.error(error);
+			alert("something went wrong");
 			dispatch(clearErrors());
 		}
 	}, [dispatch, error, isAuthenticated]);

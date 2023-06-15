@@ -24,7 +24,7 @@ const Search = () => {
 					aria-describedby="search-addon"
                     onChange={(e) => setKeyword(e.target.value)}
 				/>
-				<button type="button" class="btn search-btn">
+				<button type="submit" class="btn search-btn">
 					search
 				</button>
 			</div>

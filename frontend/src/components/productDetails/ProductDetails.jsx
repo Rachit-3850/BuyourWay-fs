@@ -51,12 +51,12 @@ const ProductDetails = () => {
 		// console.log(loading);
 		dispatch(getProductDetails(id));
 		if (error) {
-			alert(error);
+			alert("something went wrong");
 			dispatch(clearErrors());
 		}
 
 		if (reviewError) {
-			alert(reviewError);
+			alert("something went wrong");
 			dispatch(clearErrors());
 		}
 

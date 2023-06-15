@@ -59,7 +59,7 @@ exports.forgetPassword = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler("user not found with this email", 404));
     }
     const resetToken = await user.resetPassword();
-    console.log(resetToken);
+    // console.log(resetToken);
     await user.save({validateBeforeSave : false});
 
     const resetUrl = `${process.env.FRONT_URL}/password/reset/${resetToken}`;
@@ -76,7 +76,6 @@ exports.forgetPassword = catchAsyncErrors(async (req, res, next) => {
         })
     }
     catch(err) {
-            console.log(err);
             user.resetPasswordExpire = undefined;
             user.resetPassword = undefined;
             await user.save({validateBeforeSave: false});
@@ -112,7 +111,6 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 
 
 exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
-    console.log(req.user);
     const user = await User.findById(req.user.id);
     res.status(200).json({
         success : true,

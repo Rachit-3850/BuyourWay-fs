@@ -107,6 +107,7 @@ const Dashboard = () => {
 										class=" mt-1 text-decoration-none text-white"
 										data-height="8"
 										style={{ height: "8px" }}
+										to={'/admin/users'}
 									>
 										<div className="text-decoration-none">
 											<span className="text-decoration-none">

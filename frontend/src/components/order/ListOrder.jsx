@@ -55,7 +55,7 @@ const ListOrder = () => {
 			data.rows.push({
 				id: order._id,
 				numOfItems: order.orderItems.length,
-				amount: `$${order.totalPrice}`,
+				amount: `Rs ${order.totalPrice}`,
 				status:
 					order.orderStatus &&
 					String(order.orderStatus).includes("Delivered") ? (

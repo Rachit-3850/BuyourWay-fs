@@ -26,11 +26,11 @@ const Register = () => {
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			navigate("/");
+			navigate("/login");
 		}
 
 		if (error) {
-			toast.error(error);
+			alert("Something went wrong");
 			dispatch(clearErrors());
 		}
 	}, [dispatch, error, isAuthenticated]);

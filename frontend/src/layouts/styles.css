@@ -4,6 +4,10 @@
 .search-btn {
     color: #FF4B8B;
     border-color: #FF4B8B;
+}
+.search-btn:hover {
+  color: #FF4B8B;
+  border-color: #FF4B8B;
 
 }
 .pink {
@@ -64,4 +68,5 @@
   } */
   .dropdown-toggle::after {
     display: none;
+    content: none;
   }

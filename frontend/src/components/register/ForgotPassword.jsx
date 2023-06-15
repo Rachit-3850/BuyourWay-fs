@@ -12,13 +12,11 @@ const ForgotPassword = () => {
     useEffect(() => {
 
         if (error) {
-            alert(error)
+            alert("something went wrong")
             dispatch(clearErrors());
         }
 
-        if (message) {
-            alert(message)
-        }
+        
 
     }, [dispatch])
 
@@ -29,6 +27,7 @@ const ForgotPassword = () => {
         formData.set('email', email);
 
         dispatch(forgotPassword(formData))
+        alert("mail has been sent successfully")
     }
 
   return (

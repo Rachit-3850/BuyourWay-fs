@@ -17,7 +17,7 @@ const ResetPassword = () => {
     useEffect(() => {
 
         if (error) {
-            alert(error);
+            alert("something went wrong");
             dispatch(clearErrors());
         }
 
@@ -51,7 +51,7 @@ const ResetPassword = () => {
 							<input
 								type="password"
 								className="form-control"
-								placeholder="Enter email"
+								placeholder="Enter Password"
 								value={password}
                                 onChange={(e) => setPassword(e.target.value)}
 							/>

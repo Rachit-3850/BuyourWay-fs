@@ -10,7 +10,7 @@ const Profile = () => {
 	const { user, loading } = useSelector((state) => state.auth);
 	return (
 		<div>
-			{console.log(user)}
+			{/* {console.log(user)} */}
 			{loading ? (
 				<Loader />
 			) : (

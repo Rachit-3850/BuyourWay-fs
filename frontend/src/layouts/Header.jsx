@@ -17,7 +17,7 @@ const Header = () => {
 	console.log(user);
 	const logoutHandler = () => {
         dispatch(logout());
-        toast.success('Logged out successfully.')
+        alert('Logged out successfully.')
     }
 	return (
 		<>
@@ -93,7 +93,6 @@ const Header = () => {
 							!loading && (
 								<Link to="/login">
 									<button type="button" class="btn logout text-decoration-none">
-										<i class="fa fa-sign-out btn_logout" aria-hidden="true"></i>
 										login
 									</button>
 								</Link>
