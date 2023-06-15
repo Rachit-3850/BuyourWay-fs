@@ -13,14 +13,14 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.use(cookieParser());
 app.use(fileUpload())
 
-app.use(function (req, res, next) {
-    // console.log(process.env.FRONT_URL);
-    res.setHeader("Access-Control-Allow-Origin", process.env.FRONT_URL);
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    res.setHeader("Access-Control-Allow-Credentials", true);
-    next();
-});
+// app.use(function (req, res, next) {
+//     // console.log(process.env.FRONT_URL);
+//     res.setHeader("Access-Control-Allow-Origin", process.env.FRONT_URL);
+//     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//     res.setHeader("Access-Control-Allow-Credentials", true);
+//     next();
+// });
 
 
 const products = require('./routes/product')

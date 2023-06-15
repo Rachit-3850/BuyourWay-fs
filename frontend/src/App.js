@@ -32,12 +32,15 @@ import UpdateOrder from "./components/admin/UpdateOrder";
 import UsersList from "./components/admin/UsersList";
 import UpdateUser from "./components/admin/UpdateUser";
 import ProductReviews from "./components/admin/ProductReviews";
+import axios from "axios";
+axios.defaults.baseURL = "https://buyourway.onrender.com";
+axios.defaults.withCredentials = true;
 
 function App() {
 	useEffect(() => {
 		store.dispatch(loadUser());
 	}, []);
-
+	
 	return (
 		<BrowserRouter>
 			<div className="App">
