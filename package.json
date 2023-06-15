@@ -2,6 +2,9 @@
   "name": "e-commerce",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">=14 <15"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -26,4 +29,5 @@
     "redux-toolkit": "^1.1.2",
     "validator": "^13.9.0"
   }
+  
 }
