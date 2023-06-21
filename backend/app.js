@@ -8,12 +8,19 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 
 dotenv.config({path: 'backend/config/config.env'})
+// app.use(
+//     cors({
+//         credentials: true,
+//         origin: "https://profound-granita-ae492b.netlify.app",
+//     })
+// );
 app.use(
     cors({
         credentials: true,
-        origin: "https://profound-granita-ae492b.netlify.app",
+        origin: "http://localhost:3000",
     })
 );
+// app.options('*', cors())
 
 app.use(express.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
