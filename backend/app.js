@@ -11,7 +11,7 @@ dotenv.config({path: 'backend/config/config.env'})
 app.use(
     cors({
         credentials: true,
-        origin: "http://127.0.0.1:3000",
+        origin: "https://profound-granita-ae492b.netlify.app",
     })
 );
 
