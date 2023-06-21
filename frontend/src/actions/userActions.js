@@ -55,7 +55,7 @@ export const login = (email, password) => async (dispatch) => {
 
         const { data } = await axios.post('/api/v1/login', { email, password }, config)
 
-        localStorage.setItem("token" , data.user);
+        // localStorage.setItem("token" , data.user);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: data.user
@@ -225,7 +225,7 @@ export const logout = () => async (dispatch) => {
 
         await axios.get('/api/v1/logout')
 
-        localStorage.clear();
+        // localStorage.clear();
         dispatch({
             type: LOGOUT_SUCCESS,
         })

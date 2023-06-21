@@ -110,14 +110,15 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 })
 
 
-exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.user.id);
-    res.status(200).json({
-        success : true,
-        user
-    })
+// exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
+//     const user = await User.findById(req.user.id);
+//     res.status(200).json({
+//         success : true,
+//         user
+//     })
 
-})
+// })
+
 
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
     // console.log("hello");
