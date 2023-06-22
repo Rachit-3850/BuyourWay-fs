@@ -11,7 +11,7 @@ dotenv.config({path: 'backend/config/config.env'})
 app.use(
     cors({
         credentials: true,
-        origin: "https://profound-granita-ae492b.netlify.app",
+        origin: "https://buyourway.onrender.com",
     })
 );
 // app.use(
