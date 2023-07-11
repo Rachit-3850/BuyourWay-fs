@@ -8,18 +8,18 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 
 dotenv.config({path: 'backend/config/config.env'})
-app.use(
-    cors({
-        credentials: true,
-        origin: "https://buyourway.onrender.com",
-    })
-);
 // app.use(
 //     cors({
 //         credentials: true,
-//         origin: "http://localhost:3000",
+//         origin: "https://buyourway.onrender.com",
 //     })
 // );
+app.use(
+    cors({
+        credentials: true,
+        origin: "http://localhost:3000",
+    })
+);
 // app.options('*', cors())
 
 app.use(express.json({limit: '50mb'}));
