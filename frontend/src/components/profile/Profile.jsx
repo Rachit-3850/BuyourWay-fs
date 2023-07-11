@@ -24,24 +24,24 @@ const Profile = () => {
 									src={user?.avatar?.url}
 									alt={user?.name}
 								/>
-								<span class="font-weight-bold">Edogaru</span>
-								<span class="text-black-50">edogaru@mail.com.my</span>
+								<span class="font-weight-bold">
+									{user?.name}
+								</span>
+								<span class="text-black-50">{user?.email}</span>
+								<span class="text-black-50">
+									Joined On -{" "}
+									<span class="text-black-50">
+										{String(user?.createdAt).substring(
+											0,
+											10
+										)}
+									</span>
+								</span>
 								<br />
 								<br />
 								<br />
 								<div className="d-flex flex-column align-items-start">
-									<div class="font-weight-bold my-1">
-										Name - <span class="text-black-50">{user?.name}</span>
-									</div>
-									<div class="font-weight-bold my-1">
-										Email - <span class="text-black-50">{user?.email}</span>
-									</div>
-									<div class="font-weight-bold my-1">
-										Joined On -{" "}
-										<span class="text-black-50">
-											{String(user?.createdAt).substring(0, 10)}
-										</span>
-									</div>
+									
 									<br />
 									<br />
 									{user?.role !== "admin" && (

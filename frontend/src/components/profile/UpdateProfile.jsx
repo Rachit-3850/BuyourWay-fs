@@ -27,6 +27,7 @@ const UpdateProfile = () => {
 		if (user) {
 			setName(user.name);
 			setEmail(user.email);
+			console.log(user?.avatar?.url)
 			setAvatarPreview(user?.avatar?.url);
 		}
 
@@ -106,7 +107,11 @@ const UpdateProfile = () => {
 									<figure className="avatar mr-3 item-rtl">
 										<img
 											src={avatarPreview}
-											className="rounded-circle"
+											className=""
+											style={{
+												height: "50px",
+												
+											}}
 											alt="Avatar Preview"
 										/>
 									</figure>

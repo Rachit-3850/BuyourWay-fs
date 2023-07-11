@@ -50,6 +50,7 @@ export const getProducts = (keyword = '' , currentPage = 1 , category , rating =
 			payload: data,
 		});
 	} catch (err) {
+        console.log(err.message);
 		dispatch({
 			type: ALL_PRODUCTS_FAIL,
 			payload:

@@ -107,11 +107,17 @@ const ProductDetails = () => {
 				<div className="container design" id="review">
 					<div className="row ">
 						<div className="col-md-6 margin-bottom">
-							<Carousel dynamicHeight={false} >
-								{product?.images?.map(image => (
-								<div >
-									<img  src={image.url} />
-								</div>
+							<Carousel  dynamicHeight={false}>
+								{product?.images?.map((image) => (
+									<div style={{ height: "400px" }}>
+										<img
+											style={{
+												height: "inherit",
+												width: "inherit",
+											}}
+											src={image.url}
+										/>
+									</div>
 								))}
 							</Carousel>
 							<div className="d-flex justify-content-center">
@@ -140,7 +146,9 @@ const ProductDetails = () => {
 										</button>
 										<Modal show={show} onHide={handleClose}>
 											<Modal.Header closeButton>
-												<Modal.Title>SUBMIT REVIEW</Modal.Title>
+												<Modal.Title>
+													SUBMIT REVIEW
+												</Modal.Title>
 											</Modal.Header>
 											<Modal.Body>
 												<form>
@@ -150,7 +158,9 @@ const ProductDetails = () => {
 															count={5}
 															value={rating}
 															size={24}
-															onChange={(value) => setRating(value)}
+															onChange={(value) =>
+																setRating(value)
+															}
 														/>
 													</div>
 													<div className="form-group">
@@ -161,23 +171,37 @@ const ProductDetails = () => {
 															id="exampleFormControlTextarea1"
 															rows=""
 															value={comment}
-															onChange={(e) => setComment(e.target.value)}
+															onChange={(e) =>
+																setComment(
+																	e.target
+																		.value
+																)
+															}
 														/>
 													</div>
 												</form>
 											</Modal.Body>
 											<Modal.Footer>
-												<Button variant="secondary" onClick={handleClose}>
+												<Button
+													variant="secondary"
+													onClick={handleClose}
+												>
 													Close
 												</Button>
-												<Button variant="primary" onClick={reviewHandler}>
+												<Button
+													variant="primary"
+													onClick={reviewHandler}
+												>
 													Save Changes
 												</Button>
 											</Modal.Footer>
 										</Modal>
 									</>
 								) : (
-									<div className="alert alert-danger mt-5" type="alert">
+									<div
+										className="alert alert-danger mt-5"
+										type="alert"
+									>
 										Login to post your review.
 									</div>
 								)}
@@ -190,7 +214,11 @@ const ProductDetails = () => {
 								</div>
 								<div>id {product._id}</div>
 								<div className="d-flex flex-row justify-content-start gap-3 align-items-center">
-									<ReactStars size={24} value={product.ratings} edit={false} />
+									<ReactStars
+										size={24}
+										value={product.ratings}
+										edit={false}
+									/>
 									<p1>({product.numOfReviews} Reviews )</p1>
 								</div>
 								<hr />
@@ -231,11 +259,17 @@ const ProductDetails = () => {
 											</span>
 										</div>
 										{product.stock === 0 ? (
-											<button type="button" class="btn btn-danger">
+											<button
+												type="button"
+												class="btn btn-danger"
+											>
 												Out Of Stock
 											</button>
 										) : (
-											<button type="button" class="btn btn-warning">
+											<button
+												type="button"
+												class="btn btn-warning"
+											>
 												In Stock
 											</button>
 										)}
@@ -245,47 +279,67 @@ const ProductDetails = () => {
 
 									<p>{product.description}</p>
 									<div>
-										<span className="bold">Sold By</span> {product.seller}
+										<span className="bold">Sold By</span>{" "}
+										{product.seller}
 									</div>
 								</div>
 							</div>
 						</div>
 
 						<section>
-							<MDBContainer className="py-5 w-100" style={{ maxWidth: "1000px" }}>
+							<MDBContainer
+								className="py-5 w-100"
+								style={{ maxWidth: "1000px" }}
+							>
 								<MDBRow className="justify-content-center w-100">
 									<MDBCol md="12" lg="10">
 										<MDBCard className="text-dark">
 											<MDBCardBody className="p-4">
-												<MDBTypography tag="h4" className="mb-0">
+												<MDBTypography
+													tag="h4"
+													className="mb-0"
+												>
 													Recent comments
 												</MDBTypography>
 												<p className="fw-light mb-4 pb-2">
-													Latest Comments section by users
+													Latest Comments section by
+													users
 												</p>
 												{product?.reviews &&
-													product?.reviews?.length > 0 &&
-													product.reviews?.map((review) => (
-														<>
-															<div className="d-flex flex-start mw-100">
-																<div>
-																	<MDBTypography
-																		tag="h6"
-																		className="fw-bold mb-1"
-																	>
-																		{review.name}
-																	</MDBTypography>
-																	<div className="d-flex align-items-center mb-3">
-																		<p className="mb-0">{review.createdAt.substring(0,10)}</p>
+													product?.reviews?.length >
+														0 &&
+													product.reviews?.map(
+														(review) => (
+															<>
+																<div className="d-flex flex-start mw-100">
+																	<div>
+																		<MDBTypography
+																			tag="h6"
+																			className="fw-bold mb-1"
+																		>
+																			{
+																				review.name
+																			}
+																		</MDBTypography>
+																		<div className="d-flex align-items-center mb-3">
+																			<p className="mb-0">
+																				{review.createdAt.substring(
+																					0,
+																					10
+																				)}
+																			</p>
+																		</div>
+																		<p className="mb-0">
+																			{
+																				review.comment
+																			}
+																		</p>
 																	</div>
-																	<p className="mb-0">
-																		{review.comment}
-																	</p>
 																</div>
-															</div>
-															<hr className="my-3" />
-														</>
-													))}
+																<hr className="my-3" />
+															</>
+														)
+													)}
 											</MDBCardBody>
 										</MDBCard>
 									</MDBCol>

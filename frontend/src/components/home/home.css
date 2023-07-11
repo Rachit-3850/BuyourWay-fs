@@ -33,9 +33,10 @@
   .card_height {
     height: 500px;
   }
-  .card_image {
-    height: 250px;
-    width: 250px;
+  .card-img-top {
+    height: 220px;
+    width: 100%;
+    margin-top: 5px;
     object-fit: contain;
   }
   

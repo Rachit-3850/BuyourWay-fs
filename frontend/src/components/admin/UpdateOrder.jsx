@@ -49,12 +49,7 @@ const UpdateOrder = () => {
 
     }, [dispatch, error, isUpdated, orderId])
 
-    // const updateOrderHandler = (id) => {
-    //     const formData = new FormData();
-    //     formData.set('status', status);
-
-    //     dispatch(updateOrder(id, formData))
-    // }
+   console.log(orderItems);
     const updateOrderHandler = (id) => {
 
         const formData = new FormData();
@@ -74,7 +69,7 @@ const UpdateOrder = () => {
 						
 					>
 						<MDBContainer className="py-5 h-100">
-							<MDBRow className="justify-content-center align-items-center h-100">
+							<MDBRow className="justify-content-center align-items-center w-100 h-100">
 								<MDBCol lg="10" xl="8">
 									<MDBCard style={{ borderRadius: "10px" }}>
 										<MDBCardHeader className="px-4 py-5">
@@ -92,14 +87,14 @@ const UpdateOrder = () => {
 													Update Order
 												</p>
 											</div>
-                                            {order?.orderItems?.map((item) => (
+                                            {orderItems?.map((item) => (
 										<MDBCard className="shadow-0 border mb-4">
 											<MDBCardBody>
 												<MDBRow>
 													<MDBCol md="2">
 														<MDBCardImage
 															src={item.image}
-															fluid
+															
 															alt="Phone"
 														/>
 													</MDBCol>

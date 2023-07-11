@@ -65,7 +65,7 @@ export default function OrderDetails3() {
 		<>
 			<section className="h-100 gradient-custom">
 				<MDBContainer className="py-5 h-100">
-					<MDBRow className="justify-content-center align-items-center h-100">
+					<MDBRow className="justify-content-center align-items-center w-100 h-100">
 						<MDBCol lg="10" xl="8">
 							<MDBCard style={{ borderRadius: "10px" }}>
 								<MDBCardHeader className="px-4 py-5">
@@ -147,6 +147,7 @@ export default function OrderDetails3() {
 													<MDBCol md="2">
 														<MDBCardImage
 															src={item.image}
+															style={{height: '70px'}}
 															fluid
 															alt="Phone"
 														/>

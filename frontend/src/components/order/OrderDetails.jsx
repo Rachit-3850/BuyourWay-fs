@@ -34,6 +34,7 @@ const OrderDetails = () => {
 			dispatch(clearErrors());
 		}
 	}, [dispatch, error, id]);
+	console.log(order);
 	return (
 		<Fragment>
 			{loading ? (
@@ -42,10 +43,9 @@ const OrderDetails = () => {
 				<Fragment>
 					<section
 						className="h-100 gradient-custom"
-						
 					>
-						<MDBContainer className="py-5 h-100">
-							<MDBRow className="justify-content-center align-items-center h-100">
+						<MDBContainer className="py-5 h-100 ">
+							<MDBRow className="justify-content-center align-items-center w-100 h-100">
 								<MDBCol lg="10" xl="8">
 									<MDBCard style={{ borderRadius: "10px" }}>
 										<MDBCardHeader className="px-4 py-5">
@@ -67,9 +67,10 @@ const OrderDetails = () => {
 										<MDBCard className="shadow-0 border mb-4">
 											<MDBCardBody>
 												<MDBRow>
-													<MDBCol md="2">
+												<MDBCol md="2">
 														<MDBCardImage
 															src={item.image}
+															style={{height: '70px'}}
 															fluid
 															alt="Phone"
 														/>

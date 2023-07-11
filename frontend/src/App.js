@@ -22,7 +22,6 @@ import OrderSuccess from "./components/cart/OrderSuccess";
 import ListOrder from "./components/order/ListOrder";
 import OrderDetails from "./components/order/OrderDetails";
 import Dashboard from "./components/admin/Dashboard";
-import AdminRoute from "./components/route/AdminRoute";
 import ProductsList from "./components/admin/ProductsList";
 import NewProuduct from "./components/admin/NewProuduct";
 import UpdateProfile from "./components/profile/UpdateProfile";

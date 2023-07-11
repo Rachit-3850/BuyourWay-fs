@@ -3,21 +3,19 @@ import React , { useState } from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
 import Search from "./Search";
-import { toast, ToastContainer } from "react-toastify";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/userActions";
-import { useNavigate } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Fragment } from "react";
 
 const Header = () => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
-	const { user, loading } = useSelector((state) => state.auth);
+	const { user, loading , error} = useSelector((state) => state.auth);
 	console.log(user);
 	const logoutHandler = () => {
         dispatch(logout());
-        alert('Logged out successfully.')
+        alert("User logged out")
     }
 	return (
 		<>
@@ -53,12 +51,12 @@ const Header = () => {
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									<figure className="avatar avatar-nav ">
+									<figure className="avatar">
 										<img
 											src={user.avatar && user.avatar.url}
 											alt={user && user.name}
 											className="rounded-circle"
-											style={{height: "2.3rem" , width: "2.3rem"}}
+											style={{height: "2rem" , width: "2rem"}}
 										/>
 									</figure>
 									<span className="username">{user && user.name}</span>
