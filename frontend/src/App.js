@@ -33,8 +33,9 @@ import UpdateUser from "./components/admin/UpdateUser";
 import ProductReviews from "./components/admin/ProductReviews";
 import axios from "axios";
 // axios.defaults.baseURL = "https://buyourway.onrender.com";
-axios.defaults.baseURL = "http://localhost:5000";
-axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = "";
+// axios.defaults.baseURL = "http://localhost:5000";
+// axios.defaults.withCredentials = true;
 
 function App() {
 	useEffect(() => {
