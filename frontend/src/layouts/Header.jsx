@@ -39,7 +39,6 @@ const Header = () => {
 								<i class="fas fa-shopping-cart"></i>
 							</div>
 						</Link>
-
 						{user ? (
 							<div className="ml-4 d-flex align-items-center">
 								<Link

@@ -57,7 +57,7 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className="text-center   bg-pink-300 w-full">
-					Copyright © Team Async. All Rights Reserved
+					Copyright © Rachit Gupta All Rights Reserved
 				</div>
 			</div>
 		</div>
