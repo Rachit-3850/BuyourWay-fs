@@ -4,43 +4,17 @@ const errorMiddleware = require('./middlewares/error');
 const cookieParser = require("cookie-parser")
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
-const cors = require('cors')
 const dotenv = require('dotenv')
 const path = require('path')
 
 dotenv.config({path: 'backend/config/config.env'})
-// app.use(
-//     cors({
-//         credentials: true,
-//         origin: "https://buyourway.onrender.com",
-//     })
-// );
-// app.use(
-//     cors({
-//         credentials: true,
-//         origin: "http://localhost:5000",
-//     })
-// );
-// app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
-// });
-// app.options('*', cors())
 
 app.use(express.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.use(cookieParser());
 app.use(fileUpload())
 
-// app.use(function (req, res, next) {
-//     // console.log(process.env.FRONT_URL);
-//     res.setHeader("Access-Control-Allow-Origin", process.env.FRONT_URL);
-//     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-//     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-//     res.setHeader("Access-Control-Allow-Credentials", true);
-//     next();
-// });
 
 
 const products = require('./routes/product')

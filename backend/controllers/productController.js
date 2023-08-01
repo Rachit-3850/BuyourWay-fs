@@ -7,12 +7,7 @@ const cloudinary = require('cloudinary');
 exports.newProduct = catchAsyncErrors( async (req , res ,next) => {
 
     let images = []
-    // console.log(req.body.images)
-    // if (typeof req.body.images === 'string') {
-    //     images.push(req.body.images)
-    // } else {
-    //     images = req.body.images
-    // }
+   
     images = JSON.parse(req.body.images);
     let imagesLinks = [];
     // console.log(images.length)
@@ -39,7 +34,6 @@ exports.newProduct = catchAsyncErrors( async (req , res ,next) => {
 })
 
 exports.getProducts = catchAsyncErrors(async (req , res , next) => {
-    // console.log(req.query);
     const noOfPages = 6;
     const productCount = await Product.countDocuments();
 
@@ -48,16 +42,8 @@ exports.getProducts = catchAsyncErrors(async (req , res , next) => {
         .filter()
         .pagination(noOfPages)
 
-    // let products = await apiFeatures.query;
-    // let filteredProductsCount = 0;
-
-    // apiFeatures.pagination(noOfPages)
     let products = await apiFeatures.query;
-    
-    // apiFeatures = new APIFeatures(Product.find(), req.query)
-    //     .pagination(noOfPages);
-    // let filteredProductsCount = products.length;
-    // products = await apiFeatures.query;
+
 
     res.status(200).json({
         success: true,
@@ -98,13 +84,8 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     }
 
     let images = []
-    // if (typeof req.body.images === 'string') {
-    //     images.push(req.body.images)
-    // } else {
-    //     images = req.body.images
-    // }
+    
     images = JSON.parse(req.body.images);
-    // console.log(images.length);
     if (images !== undefined) {
 
         // Deleting images associated with the product
