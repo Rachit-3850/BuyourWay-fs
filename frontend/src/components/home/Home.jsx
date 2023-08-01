@@ -47,9 +47,7 @@ const Home = () => {
 	}
 
 	let count = productsCount;
-	// if (keyword) {
-	//     count = filteredProductsCount
-	// }
+	
 	return (
 		<>
 			{loading ? (

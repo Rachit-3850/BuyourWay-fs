@@ -67,12 +67,6 @@ const NewProuduct = () => {
         formData.set('seller', seller);
         formData.set('images' ,  JSON.stringify(images));
 
-        // const arr = []
-        // // console.log(images);
-        // images.forEach(image => {
-        //     arr.append('images', image)
-        // })
-        // formData.set('images', arr);
 
         dispatch(newProduct(formData))
     }
@@ -83,8 +77,7 @@ const NewProuduct = () => {
         console.log(files);
         setImagesPreview([]);
         setImages([])
-        // setImagesPreview(files)
-        // setImages(files)
+        
 
         files.forEach(file => {
             const reader = new FileReader();

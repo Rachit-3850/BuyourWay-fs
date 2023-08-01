@@ -197,8 +197,7 @@ export default function OrderDetails3() {
 												Confirm Order
 											</span>
 										</MDBTypography>
-									{/* <Link to={"/success"} className="text-decoration-none">
-									</Link> */}
+									
 								</MDBCardFooter>
 							</MDBCard>
 						</MDBCol>

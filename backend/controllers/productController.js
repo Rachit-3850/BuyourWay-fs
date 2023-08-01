@@ -142,11 +142,9 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-//review routes
 exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
 
     const { rating, comment, productId } = req.body;
-    // console.log("rating");  
     const review = {
         user: req.user._id,
         name: req.user.name,
@@ -185,7 +183,6 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
 })
 
 
-// Get Product Reviews   =>   /api/v1/reviews
 exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
     const product = await Product.findById(req.query.id);
 
@@ -195,12 +192,10 @@ exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-// Delete Product Review   =>   /api/v1/reviews
 exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
 
     const product = await Product.findById(req.query.productId);
 
-    // console.log(product);
 
     const reviews = product.reviews.filter(review => review._id.toString() !== req.query.id.toString());
 

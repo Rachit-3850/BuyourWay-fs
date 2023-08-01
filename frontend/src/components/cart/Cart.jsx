@@ -37,7 +37,7 @@ const Cart = () => {
 			return ;
 		}
         const qty = quantity + 1;
-        // console.log(qty)
+        
         dispatch(addItemToCart(id , qty))
 	}
 	const decreaseQty = (id , quantity ) => {

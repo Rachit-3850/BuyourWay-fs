@@ -92,9 +92,10 @@ const UpdateOrder = () => {
 											<MDBCardBody>
 												<MDBRow>
 													<MDBCol md="2">
-														<MDBCardImage
+													<MDBCardImage
 															src={item.image}
-															
+															style={{height: '70px'}}
+															fluid
 															alt="Phone"
 														/>
 													</MDBCol>

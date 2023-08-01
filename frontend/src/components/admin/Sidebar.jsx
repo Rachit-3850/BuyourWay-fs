@@ -5,7 +5,6 @@ const Sidebar = () => {
 	const [isActive, setIsActive] = useState(false);
 
 	const handleClick = (event) => {
-		// 👇️ toggle isActive state on click
 		setIsActive((current) => !current);
 	};
 	return (
@@ -19,17 +18,7 @@ const Sidebar = () => {
 					</li>
 
 					<li>
-						{/* <a href="#productSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle"><i
-                            className="fa fa-product-hunt"></i> Products</a>
-                        <ul className="collapse list-unstyled" id="productSubmenu">
-                            <li>
-                                <Link to="/admin/products"><i className="fa fa-clipboard"></i> All</Link>
-                            </li>
-
-                            <li>
-                                <Link to="/admin/product"><i className="fa fa-plus"></i> Create</Link>
-                            </li>
-                        </ul> */}
+						
 						<button class="dropdown-btn " onClick={handleClick}>
 							<i className="fa fa-product-hunt"></i><span className="px-3">
 							Products
@@ -54,7 +43,7 @@ const Sidebar = () => {
 									<i className="fa fa-plus"></i> Create
 								</Link>
 							</li>
-							{/* <a href="#">Link 3</a> */}
+							
 						</ul>
 					</li>
 
