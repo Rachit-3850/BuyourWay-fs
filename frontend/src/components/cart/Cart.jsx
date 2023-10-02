@@ -195,9 +195,7 @@ const Cart = () => {
 											<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
 												<div>
 													<strong>Total Amount</strong>
-													<strong>
-														<p class="mb-0">(including VAT)</p>
-													</strong>
+													
 												</div>
 												<span>
 													<strong>Rs {cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)}</strong>

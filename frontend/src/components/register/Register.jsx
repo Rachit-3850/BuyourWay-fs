@@ -25,19 +25,28 @@ const Register = () => {
 	);
 
 	useEffect(() => {
-		if (isAuthenticated) {
-			navigate("/");
-		}
-
+		
 		if (error) {
 			alert("Something went wrong");
 			dispatch(clearErrors());
 		}
+
+		// if (isAuthenticated) {
+		// 	navigate("/login");
+		// }
 	}, [dispatch, error, isAuthenticated]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-
+		console.log("submit");
+		if(!(name && email && password && avatar)) {
+			alert("All Fields are required");
+			return;
+		}
+		if(password.length < 6) {
+			alert("Password should be greater than 5 digits");
+			return;
+		}
 		const formData = new FormData();
 		formData.set("name", name);
 		formData.set("email", email);
@@ -45,6 +54,9 @@ const Register = () => {
 		formData.set("avatar", avatar);
 
 		dispatch(register(formData));
+		if(!error) {
+			navigate("/login");
+		}
 	};
 
     const onChange = e => {

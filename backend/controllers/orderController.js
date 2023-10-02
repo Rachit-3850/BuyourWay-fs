@@ -40,7 +40,7 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
     if (!order) {
         return next(new ErrorHandler('No Order found with this ID', 404))
     }
-
+    // console.log(order)
     res.status(200).json({
         success: true,
         order

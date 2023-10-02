@@ -20,15 +20,26 @@ const Login = () => {
 	useEffect(() => {
 
 		if (error) {
-			alert("something went wrong");
+			alert("Invalid User or Password");
 			dispatch(clearErrors());
+		}
+		if (isAuthenticated) {
+			navigate("/");
 		}
 	}, [dispatch, error, isAuthenticated]);
 
 	const loginHandler = (e) => {
 		e.preventDefault();
+		if(!(email && password)) {
+			alert("All Fields are required");
+			return;
+		}
+		if(password.length < 6) {
+			alert("Password should be greater than 5 digits");
+			return;
+		}
 		dispatch(login(email, password));
-		navigate("/");
+		// navigate("/");
 	};
 	return (
 		<>
