@@ -6,7 +6,7 @@ class APIFeatures {
         this.queryStr = queryStr;
     }
     search() {
-        console.log(this.queryStr)
+        // console.log(this.queryStr)
         const keyword = this.queryStr.keyword ? { 
             name: {
                 $regex: this.queryStr.keyword,
@@ -15,22 +15,22 @@ class APIFeatures {
         } : {}
 
         // console.log(keyword);
-        
+          
         this.query = this.query.find({...keyword});
         return this;  
     }
 
     filter() {
         const queryCopy = {...this.queryStr};
-        console.log(queryCopy);
+        // console.log(queryCopy);
 
         const removeFields = ['keyword', 'limit', 'page']; 
         removeFields.forEach(param => delete queryCopy[param]);
     
         let queryStr = JSON.stringify(queryCopy)
-        console.log(queryStr);
+        // console.log(queryStr);
         queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`)
-        console.log(queryStr)
+        // console.log(queryStr)
 
         this.query = this.query.find(JSON.parse(queryStr)) ;
         return this;
